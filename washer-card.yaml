@@ -1,0 +1,107 @@
+type: vertical-stack
+cards:
+  type: picture-elements
+    elements:
+      - type: image
+        entity: sensor.washer_run_state
+        image: /local/lg-icons/sensing.png
+        state_image:
+          Detecting: /local/lg-icons/sensing-on.png
+        style:
+          top: 33%
+          left: 33%
+          width: 20%
+          image-rendering: crisp
+      - type: image
+        entity: sensor.washer_run_state
+        image: /local/lg-icons/wash.png
+        state_image:
+          Washing: /local/lg-icons/wash-on.png
+        style:
+          top: 33%
+          left: 51%
+          width: 20%
+          image-rendering: crisp
+      - type: image
+        entity: sensor.washer_run_state
+        image: /local/lg-icons/rinse.png
+        state_image:
+          Rinsing: /local/lg-icons/rinse-on.png
+        style:
+          top: 33%
+          left: 69%
+          width: 20%
+          image-rendering: crisp
+      - type: image
+        entity: sensor.washer_run_state
+        image: /local/lg-icons/spin.png
+        state_image:
+          Spinning: /local/lg-icons/spin-on.png
+        style:
+          top: 33%
+          left: 87%
+          width: 20%
+          image-rendering: crisp
+      - type: image
+        entity: sensor.washer
+        image: /local/lg-icons/wifi.png
+        state_image:
+          on: /local/lg-icons/wifi-on.png
+        style:
+          top: 73%
+          left: 32%
+          width: 10%
+          image-rendering: crisp
+      - type: image
+        entity: sensor.washer_door_lock
+        image: /local/lg-icons/lock.png
+        state_image:
+          on: /local/lg-icons/lock-on.png
+        style:
+          top: 73%
+          left: 45%
+          width: 10%
+          image-rendering: crisp
+      - type: state-label
+        entity: sensor.blank
+        prefix: '18:88'
+        style:
+          color: '#555'
+          font-family: segment7
+          font-size: 50px
+          left: 95%
+          top: 74%
+          transform: 'translate(-100%,-50%)'
+      - type: state-label
+        entity: sensor.washer_time_display
+        style:
+          color: '#8df427'
+          font-family: segment7
+          font-size: 50px
+          left: 95%
+          top: 74%
+          transform: 'translate(-100%,-50%)'
+    image: /local/hass-washer-card-bg.png
+  - type: conditional
+    conditions:
+      - entity: sensor.washer_run_state
+        state_not: '-'
+    card:
+      type: entities
+      entities:
+        - entity: sensor.washer
+          type: attribute
+          attribute: current_course
+          name: Current Course
+          icon: 'mdi:tune-vertical-variant'
+        - entity: sensor.washer
+          type: attribute
+          attribute: water_temp
+          name: Water Temperature
+          icon: 'mdi:coolant-temperature'
+        - entity: sensor.washer
+          type: attribute
+          attribute: spin_speed
+          name: Spin Speed
+          icon: 'mdi:rotate-right'
+      state_color: false
