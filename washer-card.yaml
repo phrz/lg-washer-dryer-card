@@ -1,6 +1,6 @@
 type: vertical-stack
 cards:
-  type: picture-elements
+- type: picture-elements
     elements:
       - type: image
         entity: sensor.washer_run_state
