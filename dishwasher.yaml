@@ -1,0 +1,108 @@
+type: vertical-stack
+cards:
+  - type: picture-elements
+    elements:
+      - type: image
+        entity: sensor.dishwasher_run_state
+        image: /local/lg-icons/dry.png
+        state_image:
+          Drying: /local/lg-icons/dry-on.png
+        style:
+          top: 33%
+          left: 85%
+          width: 20%
+          image-rendering: crisp
+      - type: image
+        entity: sensor.dishwasher_run_state
+        image: /local/lg-icons/wash.png
+        state_image:
+          Washing: /local/lg-icons/wash-on.png
+        style:
+          top: 33%
+          left: 51%
+          width: 20%
+          image-rendering: crisp
+      - type: image
+        entity: sensor.dishwasher_run_state
+        image: /local/lg-icons/rinse.png
+        state_image:
+          Rinsing: /local/lg-icons/rinse-on.png
+        style:
+          top: 33%
+          left: 69%
+          width: 20%
+          image-rendering: crisp
+      - type: image
+        entity: sensor.dishwasher
+        image: /local/lg-icons/wifi.png
+        state_image:
+          'on': /local/lg-icons/wifi-on.png
+        style:
+          top: 73%
+          left: 32%
+          width: 10%
+          image-rendering: crisp
+      - type: image
+        entity: sensor.dishwasher_door_open
+        image: /local/lg-icons/lock.png
+        state_image:
+          'off': /local/lg-icons/lock-on.png
+        style:
+          top: 73%
+          left: 45%
+          width: 10%
+          image-rendering: crisp
+      - type: state-label
+        entity: sensor.blank
+        prefix: '18:88'
+        style:
+          color: '#555'
+          font-family: segment7
+          font-size: 50px
+          left: 95%
+          top: 74%
+          transform: translate(-100%,-50%)
+      - type: state-label
+        entity: sensor.dishwasher_time_display
+        style:
+          color: '#8df427'
+          font-family: segment7
+          font-size: 50px
+          left: 95%
+          top: 74%
+          transform: translate(-100%,-50%)
+    image: /local/hass-dryer-card-bg.png
+  - type: conditional
+    conditions:
+      - entity: sensor.dishwasher_run_state
+        state_not: '-'
+    card:
+      type: entities
+      entities:
+        - entity: sensor.dishwasher
+          type: attribute
+          attribute: process_state
+          name: Current Activity
+          icon: mdi:tune-vertical-variant
+        - entity: sensor.dishwasher
+          type: attribute
+          attribute: rinse_refill
+          name: Rinse Aid Refill
+          icon: mdi:blur
+        - entity: sensor.dishwasher
+          type: attribute
+          attribute: energy_saver
+          name: Energy Saver Mode
+          icon: mdi:battery
+        - entity: sensor.dishwasher
+          type: attribute
+          attribute: delay_start
+          name: Delay Start
+          icon: mdi:clock
+        - entity: sensor.dishwasher
+          type: attribute
+          attribute: tubclean_count
+          name: Washes Since Clean
+          icon: mdi:creation
+      state_color: false
+
