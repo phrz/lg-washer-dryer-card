@@ -3,7 +3,7 @@ cards:
   - type: picture-elements
     elements:
       - type: image
-        entity: sensor.dishwasher_run_state
+        entity: sensor.dishwasher_process_state
         image: /local/lg-icons/dry.png
         state_image:
           Drying: /local/lg-icons/dry-on.png
@@ -13,7 +13,7 @@ cards:
           width: 20%
           image-rendering: crisp
       - type: image
-        entity: sensor.dishwasher_run_state
+        entity: sensor.dishwasher_process_state
         image: /local/lg-icons/wash.png
         state_image:
           Washing: /local/lg-icons/wash-on.png
@@ -23,7 +23,7 @@ cards:
           width: 20%
           image-rendering: crisp
       - type: image
-        entity: sensor.dishwasher_run_state
+        entity: sensor.dishwasher_process_state
         image: /local/lg-icons/rinse.png
         state_image:
           Rinsing: /local/lg-icons/rinse-on.png
@@ -71,7 +71,7 @@ cards:
           left: 95%
           top: 74%
           transform: translate(-100%,-50%)
-    image: /local/hass-dryer-card-bg.png
+    image: /local/hass-dishwasher-card-bg.png
   - type: conditional
     conditions:
       - entity: sensor.dishwasher_run_state
