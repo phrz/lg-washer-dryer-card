@@ -101,7 +101,7 @@ cards:
           left: 95%
           top: 74%
           transform: translate(-100%,-50%)
-    image: /local/hass-dryer-card-bg.png
+    image: /local/hass-combo-card-bg.png
   - type: conditional
     conditions:
       - entity: sensor.washer_dryer_run_state
