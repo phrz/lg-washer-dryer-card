@@ -23,7 +23,7 @@ cards:
           width: 10%
           image-rendering: crisp
       - type: image
-        entity: sensor.washer_dryer_dryer_run_state
+        entity: sensor.washer_dryer_run_state
         image: /local/lg-icons/sensing.png
         state_image:
           Detecting: /local/lg-icons/sensing-on.png
@@ -93,7 +93,7 @@ cards:
           top: 74%
           transform: translate(-100%,-50%)
       - type: state-label
-        entity: sensor.washer_time_display
+        entity: sensor.washer_dryer_time_display
         style:
           color: '#8df427'
           font-family: segment7
