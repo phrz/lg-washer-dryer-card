@@ -4,7 +4,15 @@ sensor:
      washer_door_lock:
        friendly_name: "Washer Door Lock"
        value_template: "{{ state_attr('sensor.washer','door_lock') }}"
- 
+
+     mini_washer_door_lock:
+       friendly_name: "Mini Washer Door Lock"
+       value_template: "{{ state_attr('sensor.mini_washer','door_lock') }}"
+
+     dishwasher_door_open:
+       friendly_name: "Dish Washer Door Lock"
+       value_template: "{{ state_attr('sensor.dishwasher','door_open') }}"
+
      washer_time_display:
        friendly_name: "Washer Time Display"
        value_template: >
@@ -14,7 +22,18 @@ sensor:
          {% else %}
            {{ state_attr('sensor.washer', 'remain_time') }}
          {% endif %}
-    dryer_time_display:
+ 
+     mini_washer_time_display:
+       friendly_name: "Mini Washer Time Display"
+       value_template: >
+         {% if is_state('sensor.mini_washer_run_state', '-') %}
+         {% elif is_state('sensor.mini_washer_run_state', 'Standby') %}
+           -:--
+         {% else %}
+           {{ state_attr('sensor.mini_washer', 'remain_time') }}
+         {% endif %}
+     
+     dryer_time_display:
        friendly_name: "Dryer Time Display"
        value_template: >
           {% if is_state('sensor.dryer_run_state', '-') %}
@@ -23,6 +42,16 @@ sensor:
           {% else %}
             {{ state_attr('sensor.dryer', 'remain_time') }}
           {% endif %}
+
+     dishwasher_time_display:
+       friendly_name: "Dish Washer Time Display"
+       value_template: >
+         {% if is_state('sensor.dishwasher_run_state', '-') %}
+         {% elif is_state('sensor.dishwasher_run_state', 'Standby') %}
+           -:--
+         {% else %}
+           {{ state_attr('sensor.dishwasher', 'remain_time') }}
+         {% endif %}
  
      blank:
        friendly_name: "Blank Sensor"

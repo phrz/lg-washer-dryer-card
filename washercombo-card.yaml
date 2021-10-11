@@ -106,14 +106,11 @@ cards:
     conditions:
       - entity: sensor.washer_dryer_run_state
         state_not: '-'
+      - entity: sensor.washer_dryer_run_state
+        state_not: Standby
     card:
       type: entities
       entities:
-        - entity: sensor.washer_dryer
-          type: attribute
-          attribute: current_course
-          name: Current Course
-          icon: mdi:tune-vertical-variant
         - entity: sensor.washer_dryer
           type: attribute
           attribute: water_temp
@@ -131,8 +128,13 @@ cards:
           icon: mdi:air-filter
         - entity: sensor.washer_dryer
           type: attribute
-          attribute: temp_control
-          name: Temperature Control
-          icon: mdi:thermometer
+          attribute: run_state
+          name: Current State
+          icon: mdi:archive
+        - entity: sensor.washer_dryer
+          type: attribute
+          attribute: tubclean_count
+          name: Washes Since Tub Clean
+          icon: mdi:creation
       state_color: false
 
