@@ -1,29 +1,29 @@
 sensor:
 - platform: template
   sensors:
-     washer_door_lock:
-       friendly_name: "Washer Door Lock"
-       value_template: "{{ state_attr('sensor.washer','door_lock') }}"
- 
-     washer_time_display:
-       friendly_name: "Washer Time Display"
-       value_template: >
-         {% if is_state('sensor.washer_run_state', '-') %}
-         {% elif is_state('sensor.washer_run_state', 'Standby') %}
-           -:--
-         {% else %}
-           {{ state_attr('sensor.washer', 'remain_time') }}
-         {% endif %}
+    washer_door_lock:
+      friendly_name: "Washer Door Lock"
+      value_template: "{{ state_attr('sensor.washer','door_lock') }}"
+
+    washer_time_display:
+      friendly_name: "Washer Time Display"
+      value_template: >
+        {% if is_state('sensor.washer_run_state', '-') %}
+        {% elif is_state('sensor.washer_run_state', 'Standby') %}
+          -:--
+        {% else %}
+          {{ state_attr('sensor.washer', 'remain_time') }}
+        {% endif %}
     dryer_time_display:
-       friendly_name: "Dryer Time Display"
-       value_template: >
-          {% if is_state('sensor.dryer_run_state', '-') %}
-          {% elif is_state('sensor.dryer_run_state', 'Standby') %}
-            -:--
-          {% else %}
-            {{ state_attr('sensor.dryer', 'remain_time') }}
-          {% endif %}
- 
-     blank:
-       friendly_name: "Blank Sensor"
-       value_template: ""
+      friendly_name: "Dryer Time Display"
+      value_template: >
+        {% if is_state('sensor.dryer_run_state', '-') %}
+        {% elif is_state('sensor.dryer_run_state', 'Standby') %}
+          -:--
+        {% else %}
+          {{ state_attr('sensor.dryer', 'remain_time') }}
+        {% endif %}
+
+    blank:
+      friendly_name: "Blank Sensor"
+      value_template: ""
