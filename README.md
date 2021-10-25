@@ -1,6 +1,6 @@
 ![IMG_1843 2](https://user-images.githubusercontent.com/2007088/112699616-35751b00-8e5a-11eb-9bf8-cc09af4847a9.PNG | width=100)
 ![MiniWasher](https://user-images.githubusercontent.com/3220618/136715514-d1cb86ac-4278-4012-b7d5-25300a313fcf.png | width=100)
-![DishWasher](https://user-images.githubusercontent.com/3220618/136715529-affbf3fe-0731-4f23-ab5d-7a9713197223.png | width=100)
+![DishWasher](https://user-images.githubusercontent.com/3220618/138618307-c7b6a9f0-073e-44df-a70a-8c0acbcb033b.png | width=100)
 
 This repo is for Home Assistant users who want cards that look like their LG ThinQ enabled machines physical displays. You'll need the LG ThinQ integration already installed.
 
