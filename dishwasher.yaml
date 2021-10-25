@@ -4,9 +4,9 @@ cards:
     elements:
       - type: image
         entity: sensor.dishwasher_process_state
-        image: /local/lg-icons/dry.png
+        image: /local/lg-icons/dry-plate.png
         state_image:
-          Drying: /local/lg-icons/dry-on.png
+          Drying: /local/lg-icons/dry-plate-on.png
         style:
           top: 33%
           left: 85%
@@ -14,9 +14,9 @@ cards:
           image-rendering: crisp
       - type: image
         entity: sensor.dishwasher_process_state
-        image: /local/lg-icons/wash.png
+        image: /local/lg-icons/wash-plate.png
         state_image:
-          Washing: /local/lg-icons/wash-on.png
+          Washing: /local/lg-icons/wash-plate-on.png
         style:
           top: 33%
           left: 51%
@@ -24,9 +24,9 @@ cards:
           image-rendering: crisp
       - type: image
         entity: sensor.dishwasher_process_state
-        image: /local/lg-icons/rinse.png
+        image: /local/lg-icons/rinse-plate.png
         state_image:
-          Rinsing: /local/lg-icons/rinse-on.png
+          Rinsing: /local/lg-icons/rinse-plate-on.png
         style:
           top: 33%
           left: 69%
