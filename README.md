@@ -21,7 +21,7 @@ This is expected to apply pretty widely to any/all LG ThinQ devices of these typ
 # Installation (manual)
 1. Where `config` is the location of your `configuration.yaml` file, create `config/www` if it does not already exist. Then place the contents from this repository's `config/www` into yours.
 If you don't plan to user all the machine types, you can leave out the images that you don't require.
-2. On your Lovelace dashboard, click the three dots in the top right, and select `Edit Dashboard`. Now click the three dots again, and click `Manage Resources`. Tap `Add Resource` in the bottom right, then enter `/local/7segment.css` and ensure the type is set to `Stylesheet`. Complete the entry.
+2. On your Lovelace dashboard, click the three dots in the top right, and select `Edit Dashboard`. Now click the three dots again, and click `Manage Resources` (if you don't have this option, click your User on the sidebar and enable Advanced Mode). Tap `Add Resource` in the bottom right, then enter `/local/7segment.css` and ensure the type is set to `Stylesheet`. Complete the entry.
 3. Add the contents of this repository's `configuration.yaml` to your own. If you already have a template sensors entry like this, these sensors can be added alongside your other template sensors.
 4. **Important:** rename `sensor.washer` to the entity ID of your LG Washer, `sensor.washer_run_state` to the corresponding Washer Run State sensor, `sensor.dryer` to your dryer, and `sensor.dryer_run_state` to the Dryer Run State sensor. (In the configuration as well as the cards themselves)
 **Note**: The config file contains sensors for multiple LG machines (Washer, Dryer, Dishwasher, etc.) -- Remove the entries you do not need.
