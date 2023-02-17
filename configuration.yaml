@@ -1,3 +1,18 @@
+# This includes the config necessary for a washer and dryer.
+# Code for dishwasher and mini-washer may be commented out as-needed,
+# and are presented only for reference purposes.
+
+# NOTE: YOUR ENTITY NAMES MAY BE DIFFERENT, THEN THIS WON'T WORK WITHOUT TWEAKING
+# =================================================================================
+# If your washer doesn't have entities named sensor.washer, sensor.washer_run_state
+# (and similar for dryer), you have to change the names throughout here!
+
+# NOTE: THIS CODE EXPECTS YOUR THINQ INTEGRATION TO RETURN ENGLISH STRINGS
+# =================================================================================
+# if your LG account is in another region/language, this will probably break unless
+# you take the time to change out state strings like "Standby". Do this by watching
+# your machine's entities change states during a run, or look at its history.
+
 sensor:
 - platform: template
   sensors:
@@ -5,53 +20,57 @@ sensor:
        friendly_name: "Washer Door Lock"
        value_template: "{{ state_attr('sensor.washer','door_lock') }}"
 
-     mini_washer_door_lock:
-       friendly_name: "Mini Washer Door Lock"
-       value_template: "{{ state_attr('sensor.mini_washer','door_lock') }}"
+#      mini_washer_door_lock:
+#        friendly_name: "Mini Washer Door Lock"
+#        value_template: "{{ state_attr('sensor.mini_washer','door_lock') }}"
 
-     dishwasher_door_open:
-       friendly_name: "Dish Washer Door Lock"
-       value_template: "{{ state_attr('sensor.dishwasher','door_open') }}"
+#      dishwasher_door_open:
+#        friendly_name: "Dish Washer Door Lock"
+#        value_template: "{{ state_attr('sensor.dishwasher','door_open') }}"
 
      washer_time_display:
        friendly_name: "Washer Time Display"
        value_template: >
-         {% if is_state('sensor.washer_run_state', '-') %}
-         {% elif is_state('sensor.washer_run_state', 'Standby') %}
-           -:--
-         {% else %}
-           {{ state_attr('sensor.washer', 'remain_time') }}
-         {% endif %}
+        {% if is_state('sensor.washer_run_state', '-') %}
+        {% elif is_state('sensor.washer_run_state', 'unavailable') %}
+        {% elif is_state('sensor.washer_run_state', 'Standby') %}
+          -:--
+        {% else %}
+          {{ state_attr("sensor.washer","remain_time").split(":")[:-1] | join(':') }}   
+        {% endif %}
  
-     mini_washer_time_display:
-       friendly_name: "Mini Washer Time Display"
-       value_template: >
-         {% if is_state('sensor.mini_washer_run_state', '-') %}
-         {% elif is_state('sensor.mini_washer_run_state', 'Standby') %}
-           -:--
-         {% else %}
-           {{ state_attr('sensor.mini_washer', 'remain_time') }}
-         {% endif %}
+#      mini_washer_time_display:
+#        friendly_name: "Mini Washer Time Display"
+#        value_template: >
+#          {% if is_state('sensor.mini_washer_run_state', '-') %}
+#          {% elif is_state('sensor.mini_washer_run_state', 'unavailable') %}
+#          {% elif is_state('sensor.mini_washer_run_state', 'Standby') %}
+#            -:--
+#          {% else %}
+#            {{ state_attr("sensor.mini_washer","remain_time").split(":")[:-1] | join(':') }}
+#          {% endif %}
      
      dryer_time_display:
        friendly_name: "Dryer Time Display"
        value_template: >
           {% if is_state('sensor.dryer_run_state', '-') %}
+          {% elif is_state('sensor.dryer_run_state', 'unavailable') %}
           {% elif is_state('sensor.dryer_run_state', 'Standby') %}
             -:--
           {% else %}
-            {{ state_attr('sensor.dryer', 'remain_time') }}
+            {{ state_attr("sensor.dryer","remain_time").split(":")[:-1] | join(':') }}
           {% endif %}
 
-     dishwasher_time_display:
-       friendly_name: "Dish Washer Time Display"
-       value_template: >
-         {% if is_state('sensor.dishwasher_run_state', '-') %}
-         {% elif is_state('sensor.dishwasher_run_state', 'Standby') %}
-           -:--
-         {% else %}
-           {{ state_attr('sensor.dishwasher', 'remain_time') }}
-         {% endif %}
+#      dishwasher_time_display:
+#        friendly_name: "Dish Washer Time Display"
+#        value_template: >
+#          {% if is_state('sensor.dishwasher_run_state', '-') %}
+#          {% elif is_state('sensor.dishwasher_run_state', 'unavailable') %}
+#          {% elif is_state('sensor.dishwasher_run_state', 'Standby') %}
+#            -:--
+#          {% else %}
+#            {{ state_attr("sensor.dishwasher","remain_time").split(":")[:-1] | join(':') }}
+#          {% endif %}
  
      blank:
        friendly_name: "Blank Sensor"
