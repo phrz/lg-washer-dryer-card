@@ -1,3 +1,14 @@
+# NOTE: YOUR ENTITY NAMES MAY BE DIFFERENT, THEN THIS WON'T WORK WITHOUT TWEAKING
+# =================================================================================
+# If your washer doesn't have entities named sensor.washer, sensor.washer_run_state
+# you have to change the names throughout here!
+
+# NOTE: THIS CODE EXPECTS YOUR THINQ INTEGRATION TO RETURN ENGLISH STRINGS
+# =================================================================================
+# if your LG account is in another region/language, this will probably break unless
+# you take the time to change out state strings like "Rinsing". Do this by watching
+# your machine's entities change states during a run, or look at its history.
+
 type: vertical-stack
 cards:
   - type: picture-elements
