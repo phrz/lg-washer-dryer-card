@@ -3,60 +3,60 @@ cards:
   - type: picture-elements
     elements:
       - type: image
-        entity: sensor.galaxy_washing_machine_run_state
-        image: /local/lg_washer_card/lg-icons/sensing.png
+        entity: sensor.washer_run_state
+        image: /local/lg-icons/sensing.png
         state_image:
-          Detecting: /local/lg_washer_card/lg-icons/sensing-on.png
+          Detecting: /local/lg-icons/sensing-on.png
         style:
           top: 18%
           left: 36%
           width: 20%
           image-rendering: crisp
       - type: image
-        entity: sensor.galaxy_washing_machine_run_state
-        image: /local/lg_washer_card/lg-icons/wash.png
+        entity: sensor.washer_run_state
+        image: /local/lg-icons/wash.png
         state_image:
-          Washing: /local/lg_washer_card/lg-icons/wash-on.png
+          Washing: /local/lg-icons/wash-on.png
         style:
           top: 18%
           left: 54%
           width: 20%
           image-rendering: crisp
       - type: image
-        entity: sensor.galaxy_washing_machine_run_state
-        image: /local/lg_washer_card/lg-icons/rinse.png
+        entity: sensor.washer_run_state
+        image: /local/lg-icons/rinse.png
         state_image:
-          Rinsing: /local/lg_washer_card/lg-icons/rinse-on.png
+          Rinsing: /local/lg-icons/rinse-on.png
         style:
           top: 18%
           left: 71%
           width: 20%
           image-rendering: crisp
       - type: image
-        entity: sensor.galaxy_washing_machine_run_state
-        image: /local/lg_washer_card/lg-icons/spin.png
+        entity: sensor.washer_run_state
+        image: /local/lg-icons/spin.png
         state_image:
-          Spinning: /local/lg_washer_card/lg-icons/spin-on.png
+          Spinning: /local/lg-icons/spin-on.png
         style:
           top: 18%
           left: 87%
           width: 20%
           image-rendering: crisp
       - type: image
-        entity: sensor.galaxy_washing_machine
-        image: /local/lg_washer_card/lg-icons/wifi.png
+        entity: sensor.washer
+        image: /local/lg-icons/wifi.png
         state_image:
-          'on': /local/lg_washer_card/lg-icons/wifi-on.png
+          'on': /local/lg-icons/wifi-on.png
         style:
           top: 38%
           left: 35%
           width: 10%
           image-rendering: crisp
       - type: image
-        entity: sensor.galaxy_washing_machine_door_lock
-        image: /local/lg_washer_card/lg-icons/lock.png
+        entity: sensor.washer_door_lock
+        image: /local/lg-icons/lock.png
         state_image:
-          'on': /local/lg_washer_card/lg-icons/lock-on.png
+          'on': /local/lg-icons/lock-on.png
         style:
           top: 38%
           left: 47%
@@ -73,7 +73,7 @@ cards:
           top: 38%
           transform: translate(-100%,-50%)
       - type: state-label
-        entity: sensor.galaxy_washing_machine_time_display
+        entity: sensor.washer_time_display
         style:
           color: '#8df427'
           font-family: segment7
@@ -82,30 +82,30 @@ cards:
           top: 38%
           transform: translate(-100%,-50%)
       - type: image
-        entity: sensor.galaxy_dryer_run_state
-        image: /local/lg_washer_card/lg-icons/dry.png
+        entity: sensor.dryer_run_state
+        image: /local/lg-icons/dry.png
         state_image:
-          Drying: /local/lg_washer_card/lg-icons/dry-on.png
+          Drying: /local/lg-icons/dry-on.png
         style:
           top: 65%
           left: 36%
           width: 20%
           image-rendering: crisp
       - type: image
-        entity: sensor.galaxy_dryer_run_state
-        image: /local/lg_washer_card/lg-icons/cool.png
+        entity: sensor.dryer_run_state
+        image: /local/lg-icons/cool.png
         state_image:
-          Cooling: /local/lg_washer_card/lg-icons/cool-on.png
+          Cooling: /local/lg-icons/cool-on.png
         style:
           top: 65%
           left: 54%
           width: 20%
           image-rendering: crisp
       - type: image
-        entity: sensor.galaxy_dryer
-        image: /local/lg_washer_card/lg-icons/wifi.png
+        entity: sensor.dryer
+        image: /local/lg-icons/wifi.png
         state_image:
-          'on': /local/lg_washer_card/lg-icons/wifi-on.png
+          'on': /local/lg-icons/wifi-on.png
         style:
           top: 84%
           left: 36%
@@ -122,7 +122,7 @@ cards:
           top: 84%
           transform: translate(-100%,-50%)
       - type: state-label
-        entity: sensor.galaxy_dryer_time_display
+        entity: sensor.dryer_time_display
         style:
           color: '#8df427'
           font-family: segment7
@@ -130,25 +130,25 @@ cards:
           left: 94%
           top: 84%
           transform: translate(-100%,-50%)
-    image: /local/lg_washer_card/hass-combo-stacked-card-bg.png
+    image: /local/hass-combo-stacked-card-bg.png
   - type: conditional
     conditions:
-      - entity: sensor.galaxy_washing_machine_run_state
+      - entity: sensor.washing_machine_run_state
         state_not: '-'
     card:
       type: entities
       entities:
-        - entity: sensor.galaxy_washing_machine
+        - entity: sensor.washing_machine
           type: attribute
           attribute: current_course
           name: Current Course
           icon: mdi:tune-vertical-variant
-        - entity: sensor.galaxy_washing_machine
+        - entity: sensor.washing_machine
           type: attribute
           attribute: water_temp
           name: Water Temperature
           icon: mdi:coolant-temperature
-        - entity: sensor.galaxy_washing_machine
+        - entity: sensor.washing_machine
           type: attribute
           attribute: spin_speed
           name: Spin Speed
@@ -156,7 +156,7 @@ cards:
       state_color: false
   - type: conditional
     conditions:
-      - entity: sensor.galaxy_dryer_run_state
+      - entity: sensor.dryer_run_state
         state_not: '-'
     card:
       type: entities
