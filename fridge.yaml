@@ -1,0 +1,65 @@
+type: picture-elements
+elements:
+  - type: image
+    tap_action:
+      action: toggle
+    entity: switch.refrigerator_express_mode
+    image: /local/lg-icons/express-freeze-for-fridge-off.png
+    state_image:
+      'on': /local/lg-icons/express-freeze-for-fridge-on.png
+    style:
+      top: 74%
+      left: 55%
+      width: 10%
+      image-rendering: crisp
+  - type: image
+    tap_action:
+      action: toggle
+    entity: switch.refrigerator_express_fridge
+    image: /local/lg-icons/express-cool-for-fridge-off.png
+    state_image:
+      'on': /local/lg-icons/express-cool-for-fridge-on.png
+    style:
+      top: 35%
+      left: 55%
+      width: 10%
+      image-rendering: crisp
+  - type: image
+    entity: sensor.refrigerator
+    image: /local/lg-icons/wifi.png
+    state_image:
+      'on': /local/lg-icons/wifi-on.png
+    style:
+      top: 74%
+      left: 36%
+      width: 10%
+      image-rendering: crisp
+  - type: image
+    entity: binary_sensor.refrigerator_door_open
+    image: /local/lg-icons/fridge-closed.png
+    state_image:
+      'on': /local/lg-icons/fridge-open.png
+    style:
+      top: 35%
+      left: 36%
+      width: 10%
+      image-rendering: crisp
+  - type: state-label
+    entity: sensor.refrigerator_fridge_temp
+    style:
+      color: '#f5f5f5'
+      font-family: segment7
+      font-size: 50px
+      left: 96%
+      top: 35%
+      transform: translate(-100%,-50%)
+  - type: state-label
+    entity: sensor.refrigerator_freezer_temp
+    style:
+      color: '#f5f5f5'
+      font-family: segment7
+      font-size: 50px
+      left: 96%
+      top: 74%
+      transform: translate(-100%,-50%)
+image: /local/hass-dd-fridge-silver-steel-card-bg.png
